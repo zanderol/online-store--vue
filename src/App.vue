@@ -1,13 +1,18 @@
 <template>
   <div id="app">
-    <h1>Hello, Vue!</h1>
+    <p>Hello, Vue!</p>
+    <v-main-wrapper />
   </div>
 </template>
 
 <script>
+import vMainWrapper from "./components/v-main-wrapper.vue";
+
 export default {
   name: "App",
-  components: {},
+  components: {
+    vMainWrapper,
+  },
 };
 </script>
 
