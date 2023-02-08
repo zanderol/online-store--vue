@@ -3,7 +3,7 @@
     <h2>Catalog</h2>
     <div class="v-catalog__list">
       <v-catalog-item
-        v-for="product in products"
+        v-for="product in PRODUCTS"
         :key="product.article"
         v-bind:product_data="product"
         @sendArticle="showChildArticleInCosole"
@@ -14,6 +14,7 @@
 
 <script>
 import vCatalogItem from "./v-catalog-item.vue";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "v-catalog",
@@ -22,43 +23,25 @@ export default {
   },
   props: {},
   data() {
-    return {
-      products: [
-        {
-          image: "1.jpg",
-          name: "T-shirt 1",
-          price: 2100.234234234,
-          article: "T1",
-          available: true,
-          category: "Men",
-        },
-        {
-          image: "2.jpg",
-          name: "T-shirt 2",
-          price: 3150.12312412,
-          article: "T2",
-          available: true,
-          category: "Women",
-        },
-        {
-          image: "3.jpg",
-          name: "T-shirt 3",
-          price: 4200.51524,
-          article: "T3",
-          available: false,
-          category: "Women",
-        },
-      ],
-    };
+    return {};
   },
-  computed: {},
+  computed: {
+    ...mapGetters(["PRODUCTS"]),
+  },
   methods: {
+    ...mapActions(["GET_PRODUCTS_FROM_API"]),
     showChildArticleInCosole(data) {
       console.log(data);
     },
   },
   watch: {},
-  mounted() {},
+  mounted() {
+    this.GET_PRODUCTS_FROM_API().then((response) => {
+      if (response.data) {
+        console.log("Data arrived");
+      }
+    });
+  },
 };
 </script>
 
