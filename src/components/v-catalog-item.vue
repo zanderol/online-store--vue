@@ -7,7 +7,7 @@
     />
     <p class="v-catalog-item__name">{{ product_data.name }}</p>
     <p class="v-catalog-item__pricee">Price: {{ product_data.price }} UAH</p>
-    <button class="v-catalog-item__add-to-cart-btn" @click="sendDataToParent">
+    <button class="v-catalog-item__add-to-cart-btn" @click="addToCart">
       Add to cart
     </button>
   </div>
@@ -32,8 +32,8 @@ export default {
   },
   computed: {},
   methods: {
-    sendDataToParent() {
-      this.$emit("sendArticle", this.product_data.article);
+    addToCart() {
+      this.$emit("addToCart", this.product_data);
     },
   },
   watch: {},
@@ -45,10 +45,10 @@ export default {
 .v-catalog-item {
   flex-basis: 25%;
   box-shadow: 0 0 8px 0 #e0e0e0;
-  //padding: $padding * 2;
-  //margin-bottom: $margin * 2;
   padding: 16px;
   margin-bottom: 16px;
+  //padding: $padding * 2;
+  //margin-bottom: $margin * 2;
   &__image {
     width: 100px;
   }
