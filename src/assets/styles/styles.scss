@@ -1,14 +1,17 @@
-@import "variables.scss";
+@import "./variables.scss";
 
 .btn {
-  padding: $padding $padding * 2;
-  background: $green-bg;
+  // padding: $padding * 2;
+  padding: 16px;
+  // background: $green-bg;
+  background: #26ae68;
   color: #ffffff;
   border: 0;
-  border-radius: $radius;
+  // border-radius: $radius;
+  border-radius: 4px;
   outline: none;
   cursor: pointer;
   &:hover {
-    background: $green-bg-hover;
+    background: #31c375;
   }
 }

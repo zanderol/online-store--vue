@@ -7,6 +7,7 @@
 
 <script>
 import vMainWrapper from "./components/v-main-wrapper.vue";
+// import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "App",
