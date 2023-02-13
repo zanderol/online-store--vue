@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import vCartItem from "./v-cart-item.vue";
+import vCartItem from "../cart/v-cart-item.vue";
 import { mapActions } from "vuex";
 
 export default {

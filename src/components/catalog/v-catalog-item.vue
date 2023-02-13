@@ -2,7 +2,7 @@
   <div class="v-catalog-item">
     <img
       class="v-catalog-item__image"
-      v-bind:src="require('../assets/images/' + product_data.image)"
+      v-bind:src="require('../../assets/images/' + product_data.image)"
       alt=""
     />
     <p class="v-catalog-item__name">{{ product_data.name }}</p>
@@ -37,7 +37,9 @@ export default {
     },
   },
   watch: {},
-  mounted() {},
+  mounted() {
+    this.$set(this.product_data, "quantity", 1);
+  },
 };
 </script>
 
