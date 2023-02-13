@@ -7,7 +7,7 @@
     />
     <p class="v-catalog-item__name">{{ product_data.name }}</p>
     <p class="v-catalog-item__pricee">Price: {{ product_data.price }} UAH</p>
-    <button class="v-catalog-item__add-to-cart-btn" @click="addToCart">
+    <button class="v-catalog-item__add-to-cart-btn btn" @click="addToCart">
       Add to cart
     </button>
   </div>

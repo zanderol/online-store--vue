@@ -2,9 +2,9 @@
 
 .btn {
   // padding: $padding * 2;
-  padding: 16px;
+  padding: 8px 16px;
   // background: $green-bg;
-  background: #26ae68;
+  background: #5e3a6a;
   color: #ffffff;
   border: 0;
   // border-radius: $radius;
@@ -12,6 +12,7 @@
   outline: none;
   cursor: pointer;
   &:hover {
-    background: #31c375;
+    background: #a352be;
+    scale: 1.1;
   }
 }
