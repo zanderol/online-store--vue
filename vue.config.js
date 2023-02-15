@@ -16,6 +16,7 @@ module.exports = {
         .end();
     });
   },
+  publicPath: "/native-select-vue/",
 };
 
 // module.exports = {
