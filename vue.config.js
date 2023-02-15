@@ -16,7 +16,8 @@ module.exports = {
         .end();
     });
   },
-  publicPath: "/native-select-vue/",
+  publicPath:
+    process.env.NODE_ENV === "production" ? "/native-select-vue/" : "/",
 };
 
 // module.exports = {
