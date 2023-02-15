@@ -6,7 +6,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lint:js": "eslint src/**/*.{js,jsx}"
   },
   "dependencies": {
     "@vue/cli": "^5.0.8",
