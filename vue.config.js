@@ -16,6 +16,8 @@ module.exports = {
         .end();
     });
   },
+  publicPath:
+    process.env.NODE_ENV === "production" ? "/online-store--vue/" : "/",
 };
 
 // module.exports = {
