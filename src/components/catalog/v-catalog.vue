@@ -7,7 +7,7 @@
     <div class="v-catalog__list">
       <v-catalog-item
         v-for="product in PRODUCTS"
-        :key="product.article"
+        :key="product.id"
         v-bind:product_data="product"
         @addToCart="addToCart"
       />
