@@ -1,14 +1,10 @@
 <template>
   <div class="v-cart-item">
-    <img
-      class="v-cart-item__image"
-      :src="require('../../assets/images/' + cart_item_data.image)"
-      alt=""
-    />
+    <img class="v-cart-item__image" :src="cart_item_data.image" alt="" />
     <div class="v-cart-item__info">
-      <p>{{ cart_item_data.name }}</p>
-      <p>{{ cart_item_data.price }}</p>
-      <p>{{ cart_item_data.article }}</p>
+      <p>{{ cart_item_data.title }}</p>
+      <p>{{ cart_item_data.price }} UAH</p>
+      <p class="v-cart-item__description">{{ cart_item_data.description }}</p>
     </div>
     <div class="v-cart-item__quantity">
       <p>Qty:</p>
@@ -63,6 +59,9 @@ export default {
   margin-bottom: 16px;
   &__image {
     max-width: 50px;
+  }
+  &__description {
+    width: 500px;
   }
   .quantity_btn {
     cursor: pointer;

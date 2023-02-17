@@ -1,11 +1,7 @@
 <template>
   <div class="v-catalog-item">
-    <img
-      class="v-catalog-item__image"
-      v-bind:src="require('../../assets/images/' + product_data.image)"
-      alt=""
-    />
-    <p class="v-catalog-item__name">{{ product_data.name }}</p>
+    <img class="v-catalog-item__image" v-bind:src="product_data.image" alt="" />
+    <p class="v-catalog-item__name">{{ product_data.title }}</p>
     <p class="v-catalog-item__pricee">Price: {{ product_data.price }} UAH</p>
     <button class="v-catalog-item__add-to-cart-btn btn" @click="addToCart">
       Add to cart
