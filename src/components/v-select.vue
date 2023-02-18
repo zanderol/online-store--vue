@@ -75,7 +75,7 @@ export default {
 .options {
   border: solid 1px #aeaeae;
   position: absolute;
-  top: 30px;
+  top: -45px;
   right: 0;
   width: 100%;
 }

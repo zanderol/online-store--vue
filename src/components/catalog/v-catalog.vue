@@ -101,7 +101,7 @@ export default {
   }
   .v-select {
     display: block;
-    margin-top: -20px;
+    margin-top: -85px;
     margin-bottom: 70px;
   }
 }
