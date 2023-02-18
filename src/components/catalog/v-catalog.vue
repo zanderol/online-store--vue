@@ -9,6 +9,7 @@
       :selected="selected"
       :options="categories"
       @select="sortByCategories"
+      :isExpanded="IS_DESKTOP"
     />
     <div class="v-catalog__list">
       <v-catalog-item
@@ -37,17 +38,17 @@ export default {
     return {
       categories: [
         { name: "All" },
-        { name: "men's clothing" },
-        { name: "women's clothing" },
-        { name: "jewelery" },
-        { name: "electronics" },
+        { name: "Men's clothing" },
+        { name: "Women's clothing" },
+        { name: "Jewelery" },
+        { name: "Electronics" },
       ],
       selected: "All",
       sortedProducts: [],
     };
   },
   computed: {
-    ...mapGetters(["PRODUCTS", "CART"]),
+    ...mapGetters(["PRODUCTS", "CART", "IS_MOBILE", "IS_DESKTOP"]),
     filteredProducts() {
       if (this.sortedProducts.length) {
         return this.sortedProducts;
