@@ -54,7 +54,8 @@ export default {
   margin-bottom: 16px;
 
   &__image {
-    height: 100px;
+    max-height: 100px;
+    max-width: 100px;
   }
   &__description {
     justify-content: baseline;
