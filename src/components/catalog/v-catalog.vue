@@ -4,7 +4,6 @@
       <div class="v-catalog__link-to-cart">Cart: {{ CART.length }}</div>
     </router-link>
     <h2>Catalog</h2>
-    <div class="filters"></div>
     <v-select
       class="v-select"
       :selected="selected"
