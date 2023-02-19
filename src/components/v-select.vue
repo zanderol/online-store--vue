@@ -3,7 +3,7 @@
     <p class="title" @click="areOptionsVisible = !areOptionsVisible">
       {{ selected }}
     </p>
-    <div class="options" v-if="areOptionsVisible || isExpanded">
+    <div class="options" v-if="areOptionsVisible">
       <p
         v-for="option in options"
         :key="option.value"
@@ -28,10 +28,6 @@ export default {
     selected: {
       type: String,
       default: "",
-    },
-    isExpanded: {
-      type: Boolean,
-      default: false,
     },
   },
   data() {
@@ -79,13 +75,11 @@ export default {
 .options {
   border: solid 1px #aeaeae;
   position: absolute;
-  top: 30px;
+  top: -45px;
   right: 0;
   width: 100%;
-
-  background-color: #e7e7e7;
 }
 .options p:hover {
-  background: rgba(211, 163, 212, 0.9);
+  background: #e7e7e7;
 }
 </style>
