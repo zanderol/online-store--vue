@@ -4,12 +4,39 @@
       <div class="v-catalog__link-to-cart">Cart: {{ CART.length }}</div>
     </router-link>
     <h2>Catalog</h2>
-    <v-select
-      class="v-select"
-      :selected="selected"
-      :options="categories"
-      @select="sortByCategories"
-    />
+    <div class="filters">
+      <v-select
+        class="v-select"
+        :selected="selected"
+        :options="categories"
+        @select="sortByCategories"
+        option-component="capitalize-option"
+      />
+      <div class="range-slider">
+        <input
+          class="range-slider__input"
+          type="range"
+          min="0"
+          max="2000"
+          step="10"
+          v-model.number="minPrice"
+          @change="setRangeSlider"
+        />
+        <input
+          type="range"
+          min="0"
+          max="2000"
+          step="10"
+          v-model.number="maxPrice"
+          @change="setRangeSlider"
+        />
+      </div>
+      <div class="range-values">
+        <p>Min: {{ minPrice }}</p>
+        <p>Max: {{ maxPrice }}</p>
+      </div>
+    </div>
+
     <div class="v-catalog__list">
       <v-catalog-item
         v-for="product in filteredProducts"
@@ -44,6 +71,8 @@ export default {
       ],
       selected: "All",
       sortedProducts: [],
+      minPrice: 0,
+      maxPrice: 2000,
     };
   },
   computed: {
@@ -58,25 +87,46 @@ export default {
   },
   methods: {
     ...mapActions(["GET_PRODUCTS_FROM_API", "ADD_TO_CART"]),
+    setRangeSlider() {
+      if (this.minPrice > this.maxPrice) {
+        let tmp = this.maxPrice;
+        this.maxPrice = this.minPrice;
+        this.minPrice = tmp;
+      }
+      this.sortByCategories();
+    },
     sortByCategories(category) {
-      this.sortedProducts = [];
+      // this.sortedProducts = [];
+      // let vm = this;
+      // this.PRODUCTS.map(function (item) {
+      //   if (item.category === category.name.toLowerCase()) {
+      //     vm.sortedProducts.push(item);
+      //   }
+      // });
+      // this.selected = category.name.toLowerCase();
       let vm = this;
-      this.PRODUCTS.map(function (item) {
-        if (item.category === category.name) {
-          vm.sortedProducts.push(item);
-        }
+      this.sortedProducts = [...this.PRODUCTS];
+      this.sortedProducts = this.sortedProducts.filter(function (item) {
+        return item.price >= vm.minPrice && item.price <= vm.maxPrice;
       });
-      this.selected = category.name;
+      if (category) {
+        this.sortedProducts = this.sortedProducts.filter(function (e) {
+          vm.selected === category.name; //вывод имени категории в селекторе
+          return e.category === category.name;
+        });
+      }
     },
     addToCart(data) {
       this.ADD_TO_CART(data);
     },
   },
+
   watch: {},
   mounted() {
     this.GET_PRODUCTS_FROM_API().then((response) => {
       if (response.data) {
         console.log("Data arrived");
+        this.sortByCategories();
       }
     });
   },
@@ -103,6 +153,32 @@ export default {
     display: block;
     margin-top: -85px;
     margin-bottom: 70px;
+  }
+  .filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .range-slider {
+    width: 200px;
+    margin: auto 16px;
+    text-align: center;
+    position: relative;
+  }
+
+  .range-slider svg,
+  .range-slider input[type="range"] {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    z-index: 2;
+    position: relative;
+    top: 2px;
+    margin-top: -7px;
   }
 }
 </style>
