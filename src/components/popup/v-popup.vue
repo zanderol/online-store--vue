@@ -1,0 +1,67 @@
+<template>
+  <div class="v-popup">
+    <div class="v-popup__header">
+      <span>Popup Name</span>
+      <span>
+        <i class="material-icons" @click="closePopup">close</i>
+      </span>
+    </div>
+    <div class="v-popup__content">
+      <slot></slot>
+    </div>
+    <div class="v-popup__footer">
+      <button class="close_modal" @click="closePopup">Close</button>
+      <button class="submit_btn">Add to cart</button>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  name: "v-popup",
+  props: {},
+  data() {
+    return {};
+  },
+  methods: {
+    closePopup() {
+      this.$emit("closePopup");
+    },
+  },
+  computed: {},
+};
+</script>
+
+<style lang="scss">
+.v-popup {
+  padding: 16px;
+  position: fixed;
+  top: 50px;
+  width: 400px;
+  background: #fff;
+  box-shadow: 0 0 17px 0 #e7e7e7;
+  z-index: 10;
+  &__header,
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .submit_btn {
+    padding: 8px;
+    color: #fff;
+    background: #037a29;
+  }
+  .close_modal {
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+    color: #fff;
+    background: #c12222;
+  }
+}
+</style>
