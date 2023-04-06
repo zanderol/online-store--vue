@@ -12,7 +12,9 @@
       </div>
       <div class="v-popup__footer">
         <button class="close_modal" @click="closePopup">Close</button>
-        <button class="submit_btn">{{ addBtnTitle }}</button>
+        <button class="submit_btn" @click="addBtnAction">
+          {{ addBtnTitle }}
+        </button>
       </div>
     </div>
   </div>
@@ -35,6 +37,9 @@ export default {
     return {};
   },
   methods: {
+    addBtnAction() {
+      this.$emit("addBtnAction");
+    },
     closePopup() {
       this.$emit("closePopup");
     },

@@ -2,9 +2,10 @@
   <div class="v-catalog-item">
     <v-popup
       v-if="isInfoPopupVisible"
-      @closePopup="closeInfoPopup"
       addBtnTitle="Add to cart"
       :popupTitle="product_data.title"
+      @closePopup="closeInfoPopup"
+      @addBtnAction="addToCart"
     >
       <img
         class="v-catalog-item__image"
