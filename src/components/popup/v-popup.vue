@@ -1,24 +1,36 @@
 <template>
-  <div class="v-popup">
-    <div class="v-popup__header">
-      <span>Popup Name</span>
-      <span>
-        <i class="material-icons" @click="closePopup">close</i>
-      </span>
-    </div>
-    <div class="v-popup__content">
-      <slot></slot>
-    </div>
-    <div class="v-popup__footer">
-      <button class="close_modal" @click="closePopup">Close</button>
-      <button class="submit_btn">Add to cart</button>
+  <div class="popup_wrapper">
+    <div class="v-popup">
+      <div class="v-popup__header">
+        <span>{{ popupTitle }}</span>
+        <span>
+          <i class="material-icons" @click="closePopup">close</i>
+        </span>
+      </div>
+      <div class="v-popup__content">
+        <slot></slot>
+      </div>
+      <div class="v-popup__footer">
+        <button class="close_modal" @click="closePopup">Close</button>
+        <button class="submit_btn">{{ addBtnTitle }}</button>
+      </div>
     </div>
   </div>
 </template>
+
 <script>
 export default {
   name: "v-popup",
-  props: {},
+  props: {
+    popupTitle: {
+      type: String,
+      default: "Popup name",
+    },
+    addBtnTitle: {
+      type: String,
+      default: "Ok",
+    },
+  },
   data() {
     return {};
   },
@@ -32,6 +44,16 @@ export default {
 </script>
 
 <style lang="scss">
+.popup_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
 .v-popup {
   padding: 16px;
   position: fixed;
