@@ -3,7 +3,7 @@
     <img class="v-cart-item__image" :src="cart_item_data.image" alt="" />
     <div class="v-cart-item__info">
       <p>{{ cart_item_data.title }}</p>
-      <p>{{ cart_item_data.price }} UAH</p>
+      <p>{{ cart_item_data.price | toFix }}</p>
       <p class="v-cart-item__description">{{ cart_item_data.description }}</p>
     </div>
     <div class="v-cart-item__quantity">
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import toFix from "../../filters/toFix";
 export default {
   name: "v-cart-item",
   props: {
@@ -31,6 +32,9 @@ export default {
   },
   data() {
     return {};
+  },
+  filters: {
+    toFix,
   },
   computed: {},
   methods: {

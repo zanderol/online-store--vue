@@ -14,7 +14,9 @@
       />
       <div>
         <p class="v-catalog-item__name">{{ product_data.title }}</p>
-        <p class="v-catalog-item__price">Price: {{ product_data.price }} UAH</p>
+        <p class="v-catalog-item__price">
+          Price: {{ product_data.price | toFix }}
+        </p>
         <p class="v-catalog-item__price">{{ product_data.category }}</p>
       </div>
     </v-popup>
@@ -22,10 +24,14 @@
     <img class="v-catalog-item__image" v-bind:src="product_data.image" alt="" />
     <div class="v-catalog-item__description">
       <p class="v-catalog-item__name">{{ product_data.title }}</p>
-      <p class="v-catalog-item__price">Price: {{ product_data.price }} UAH</p>
+      <p class="v-catalog-item__price">
+        Price: {{ product_data.price | toFix }}
+      </p>
       <button class="v-catalog-item__show-info" @click="showPopupInfo">
         Show info
       </button>
+      <br />
+
       <button class="v-catalog-item__add-to-cart-btn btn" @click="addToCart">
         Add to cart
       </button>
@@ -35,6 +41,7 @@
 
 <script>
 import vPopup from "../popup/v-popup";
+import toFix from "../../filters/toFix";
 
 export default {
   name: "v-catalog-item",
@@ -53,6 +60,9 @@ export default {
     return {
       isInfoPopupVisible: false,
     };
+  },
+  filters: {
+    toFix,
   },
   computed: {},
   methods: {
@@ -91,6 +101,7 @@ export default {
   }
   &__description {
     justify-content: baseline;
+    gap: 10px;
   }
 }
 </style>
