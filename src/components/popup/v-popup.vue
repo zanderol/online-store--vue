@@ -1,5 +1,5 @@
 <template>
-  <div class="popup_wrapper">
+  <div class="popup_wrapper" ref="popup_wrapper">
     <div class="v-popup">
       <div class="v-popup__header">
         <span>{{ popupTitle }}</span>
@@ -39,12 +39,21 @@ export default {
       this.$emit("closePopup");
     },
   },
+  mounted() {
+    let vm = this;
+    document.addEventListener("click", function (item) {
+      if (item.target === vm.$refs["popup_wrapper"]) {
+        vm.closePopup();
+      }
+    });
+  },
   computed: {},
 };
 </script>
 
 <style lang="scss">
 .popup_wrapper {
+  background: rgba(64, 64, 64, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
