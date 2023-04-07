@@ -96,14 +96,6 @@ export default {
       this.sortByCategories();
     },
     sortByCategories(category) {
-      // this.sortedProducts = [];
-      // let vm = this;
-      // this.PRODUCTS.map(function (item) {
-      //   if (item.category === category.name.toLowerCase()) {
-      //     vm.sortedProducts.push(item);
-      //   }
-      // });
-      // this.selected = category.name.toLowerCase();
       let vm = this;
       this.sortedProducts = [...this.PRODUCTS];
       this.sortedProducts = this.sortedProducts.filter(function (item) {
@@ -135,6 +127,7 @@ export default {
 
 <style lang="scss">
 .v-catalog {
+  margin-top: 100px;
   &__list {
     display: flex;
     flex-wrap: wrap;
@@ -143,7 +136,7 @@ export default {
   }
   &__link-to-cart {
     position: absolute;
-    top: 10px;
+    top: 100px;
     right: 10px;
     padding: 16px;
     border: solid 1px gray;

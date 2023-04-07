@@ -1,5 +1,7 @@
 <template>
-  <div class="v-main-page"></div>
+  <div class="v-main-page">
+    <h1>Online market</h1>
+  </div>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <p>Hello, Vue!</p>
+    <!-- <p>Hello, Vue!</p> -->
     <v-main-wrapper />
   </div>
 </template>
