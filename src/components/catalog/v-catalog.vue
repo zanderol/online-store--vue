@@ -127,7 +127,6 @@ export default {
 
 <style lang="scss">
 .v-catalog {
-  margin-top: 100px;
   &__list {
     display: flex;
     flex-wrap: wrap;
