@@ -1,8 +1,10 @@
 <template>
   <div class="v-header">
-    <img src="../../assets/logo.png" alt="Main logo" />
+    <router-link :to="{ name: 'mainPage' }">
+      <img src="../../assets/logo.png" alt="Main logo" />
+    </router-link>
     <div class="search-field">
-      <input type="text" />
+      <input type="text" v-model="searchValue" />
       <button class="search_btn">
         <i class="material-icons">search</i>
       </button>
@@ -15,7 +17,9 @@ export default {
   name: "v-header",
   props: {},
   data() {
-    return {};
+    return {
+      searchValue: "",
+    };
   },
   computed: {},
 };
@@ -34,11 +38,12 @@ export default {
   img {
     width: 80px;
     background-color: transparent;
+    padding-left: 50px;
   }
   .search-field {
     padding: 16px;
     position: relative;
-    right: 200px;
+    right: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
