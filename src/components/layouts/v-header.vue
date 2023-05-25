@@ -6,13 +6,15 @@
     <div class="search-field">
       <input type="text" v-model="searchValue" />
       <button class="search_btn">
-        <i class="material-icons">search</i>
+        <i class="material-icons" @click="search(searchValue)">search</i>
       </button>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "v-header",
   props: {},
@@ -21,7 +23,15 @@ export default {
       searchValue: "",
     };
   },
-  computed: {},
+  computed: {
+    ...mapGetters(["SEARCH_VALUE"]),
+  },
+  methods: {
+    ...mapActions(["GET_SEARCH_VALUE_TO_VUEX"]),
+    search(value) {
+      this.GET_SEARCH_VALUE_TO_VUEX(value);
+    },
+  },
 };
 </script>
 <style lang="scss">

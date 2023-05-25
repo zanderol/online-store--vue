@@ -91,6 +91,15 @@ export default {
     padding: 8px;
     color: #fff;
     background: #037a29;
+    border-radius: 4px;
+    border: none;
+
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      scale: 1.1;
+      background: #059c34;
+    }
   }
   .close_modal {
     display: flex;
@@ -98,6 +107,24 @@ export default {
     padding: 8px;
     color: #fff;
     background: #c12222;
+    border: none;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      scale: 1.1;
+      background: #e21f1f;
+    }
+  }
+  .material-icons {
+    cursor: default;
+
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(0px 0px 1px rgba(194, 33, 33, 0.5));
+    }
   }
 }
 </style>
